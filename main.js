@@ -36,8 +36,7 @@ const closeIssue = id => {
 
 const deleteIssue = id => {
   const issues = JSON.parse(localStorage.getItem('issues'));
-  // const remainingIssues = issues.filter( issue => issue.id == id );
-  const index = issues.findIndex(issue => issue.id == id);
+  const index = issues.findIndex(issue => issue.id !== id);
   issues.splice(index, 1)
   console.log(index);
   localStorage.setItem('issues', JSON.stringify(issues));
